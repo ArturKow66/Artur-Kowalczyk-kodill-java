@@ -2,6 +2,8 @@ package com.kodilla.stream;
 
 import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
 import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.*;
 import com.kodilla.stream.beautyfier.PoemBeautifier;
@@ -133,6 +135,19 @@ public class StreamMain {
                 .collect(Collectors.joining(",\n","<<",">>"));
 
         System.out.println(theResultStringOfBooks);
+        System.out.println();
+
+        //8.0 Stream functions
+        Forum theForum = new Forum();
+        Map<Integer, ForumUser> theResultMapOfForumUsers = theForum.getUsersList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getBirthDate().getYear() < 2000)
+                .filter(forumUser -> forumUser.getPostCount() > 0)
+                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
+        System.out.println("# elements: " + theResultMapOfForumUsers.size());
+        theResultMapOfForumUsers.entrySet().stream()
+                .map(entry -> "ID " + entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
         System.out.println();
     }
 }

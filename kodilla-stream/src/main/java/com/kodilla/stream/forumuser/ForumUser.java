@@ -38,4 +38,15 @@ public final class ForumUser {
     public int getPostCount() {
         return postCount;
     }
+
+    @Override
+    public String toString() {
+        return "ForumUser{" +
+                "userID=" + userID +
+                ", userName='" + userName + '\'' +
+                ", sex=" + sex +
+                ", birthDate=" + birthDate +
+                ", postCount=" + postCount +
+                '}';
+    }
 }
