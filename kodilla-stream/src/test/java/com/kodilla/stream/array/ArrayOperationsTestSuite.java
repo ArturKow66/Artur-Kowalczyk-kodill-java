@@ -30,7 +30,7 @@ public class ArrayOperationsTestSuite {
     void testGetAverage(){
         //Given
         int[] numbers = new int[20];
-        numbers[0] = 4;
+        numbers[0] = 24;
         numbers[1] = 42;
         numbers[2] = 52;
         numbers[3] = 1;
@@ -53,7 +53,7 @@ public class ArrayOperationsTestSuite {
 
         //When
         OptionalDouble result = ArrayOperations.getAverage(numbers);
-        OptionalDouble expected = OptionalDouble.of(47.5);
+        OptionalDouble expected = OptionalDouble.of(48.5);
         //Then
         Assertions.assertEquals(expected, result);
 
