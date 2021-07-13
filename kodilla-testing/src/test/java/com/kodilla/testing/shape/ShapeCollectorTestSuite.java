@@ -1,6 +1,5 @@
-package com.kodilla.testing.forum.shape;
+package com.kodilla.testing.shape;
 
-import com.kodilla.testing.shape.*;
 import org.junit.jupiter.api.*;
 
 @DisplayName("TDD: Shape Collector Test Suite")

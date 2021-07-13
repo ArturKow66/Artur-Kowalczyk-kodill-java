@@ -15,6 +15,7 @@ import java.util.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
+@DisplayName("Test Book Directory")
 @ExtendWith(MockitoExtension.class)
 public class BookDirectoryTestSuite {
 
