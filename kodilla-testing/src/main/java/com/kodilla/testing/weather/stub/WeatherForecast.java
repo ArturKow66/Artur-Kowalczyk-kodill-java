@@ -1,7 +1,6 @@
 package com.kodilla.testing.weather.stub;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class WeatherForecast {
 
@@ -21,5 +20,50 @@ public class WeatherForecast {
             resultMap.put(temperature.getKey(), temperature.getValue() + 1.0); // [1]
         }
         return resultMap;
+    }
+
+    public double calculateAverage(){
+        double resultSum = 0.0;
+        double mapSize = 0.0;
+        for (Map.Entry<String, Double> temperature: temperatures.getTemperatures().entrySet()){
+            resultSum = resultSum + temperature.getValue();
+            mapSize++;
+        }
+        return resultSum / mapSize;
+    }
+
+    public double calculateMedian() {
+        List<Double> temperaturesForMedian = new ArrayList<>();
+
+        for (Map.Entry<String, Double> theTemperature : temperatures.getTemperatures().entrySet()) {
+            boolean valueIsBigger = false;
+            int listCounter = 0;
+            while (!valueIsBigger) {
+                if (temperaturesForMedian.isEmpty()) {
+                    temperaturesForMedian.add(listCounter, theTemperature.getValue());
+                    valueIsBigger = true;
+                } else if (listCounter == temperaturesForMedian.size()) {
+                    temperaturesForMedian.add(theTemperature.getValue());
+                    valueIsBigger = true;
+                } else if (theTemperature.getValue() <= temperaturesForMedian.get(listCounter)) {
+                    temperaturesForMedian.add(listCounter, theTemperature.getValue());
+                    valueIsBigger = true;
+                } else {
+                    listCounter++;
+                }
+            }
+        }
+
+        int numberToGet;
+        double median;
+
+        if (temperaturesForMedian.size() % 2 == 0) {
+            numberToGet = temperaturesForMedian.size() / 2;
+            median = (temperaturesForMedian.get(numberToGet) + temperaturesForMedian.get(numberToGet - 1)) / 2;
+        } else {
+            numberToGet = (int) ((temperaturesForMedian.size() / 2) + 0.5);
+            median = temperaturesForMedian.get(numberToGet);
+        }
+        return median;
     }
 }
