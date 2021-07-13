@@ -1,19 +1,20 @@
 package com.kodilla.testing;
 
-import com.kodilla.testing.user.SimpleUser;
+//import com.kodilla.testing.user.SimpleUser;
 
 public class TestingMain {
 
     public static void main(String[] args) {
 
+        /*
         System.out.println("Moduł 6. Wprowadzenie to testowania oprogramowania");
 
         SimpleUser simpleUser = new SimpleUser("theForumUser");
-        Calculator calculator = new Calculator(6, 4);
+        Calculator calculator = new Calculator();
 
         String result = simpleUser.getUsername();
-        int sum = calculator.addAToB();
-        int subtraction = calculator.subtractBFromA();
+        int sum = calculator.addAToB(6,4);
+        int subtraction = calculator.subtractBFromA(10, 8);
 
 
         if (result.equals("theForumUser")) {
@@ -39,6 +40,8 @@ public class TestingMain {
         } else {
             System.out.println("Error - test 2.");
         }
+
+         */
 
     }
 }

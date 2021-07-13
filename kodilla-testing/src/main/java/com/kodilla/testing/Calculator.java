@@ -5,16 +5,14 @@ public class Calculator {
     int a;
     int b;
 
-    public Calculator(int a, int b) {
-        this.a = a;
-        this.b = b;
+    public Calculator() {
     }
 
-    public int addAToB(){
+    public int addAToB(int a, int b){
         return a + b;
     }
 
-    public int subtractBFromA(){
+    public int subtractBFromA(int a, int b){
         return a - b;
     }
 
