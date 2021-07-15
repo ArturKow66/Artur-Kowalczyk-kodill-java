@@ -1,9 +1,7 @@
 package com.kodill.jdbc;
 
 import com.kodilla.jdbc.DbManager;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -13,6 +11,25 @@ import java.sql.Statement;
 @DisplayName("DbManager Test Suite")
 public class DbManagerTestSuite {
 
+    private static int testCounter = 0;
+
+    @BeforeAll
+    public static void beforeAllTests(){
+        System.out.println("The beginning of tests");
+    }
+
+    @AfterAll
+    public static void afterAllTests(){
+        System.out.println("The end of all tests");
+    }
+
+    @BeforeEach
+    public void beforeEveryTest(){
+        testCounter++;
+        System.out.println("Execute test #" + testCounter);
+    }
+
+    @DisplayName("Test: connect()")
     @Test
     void testConnect() throws SQLException {
         //Given
@@ -22,6 +39,7 @@ public class DbManagerTestSuite {
         Assertions.assertNotNull(dbManager.getConnection());
     }
 
+    @DisplayName("Test: selectUsers()")
     @Test
     void testSelectUsers() throws SQLException {
         //Given
@@ -45,6 +63,7 @@ public class DbManagerTestSuite {
         Assertions.assertEquals(5, counter);
     }
 
+    @DisplayName("Test: selectUsersAndPosts()")
     @Test
     public void testSelectUsersAndPosts() throws SQLException, IOException {
         //Given
