@@ -19,3 +19,6 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+bootJar {
+    mainClassName = 'com.kodilla.hibernate.KodillaHibernateApplication'
+}
