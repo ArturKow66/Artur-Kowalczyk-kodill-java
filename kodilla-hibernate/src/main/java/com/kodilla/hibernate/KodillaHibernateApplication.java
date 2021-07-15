@@ -10,6 +10,4 @@ public class KodillaHibernateApplication {
         SpringApplication.run(KodillaHibernateApplication.class, args);
         System.out.println();
     }
-
-
 }
