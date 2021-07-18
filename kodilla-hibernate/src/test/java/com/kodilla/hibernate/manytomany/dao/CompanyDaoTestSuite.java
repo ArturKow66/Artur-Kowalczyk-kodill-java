@@ -2,9 +2,7 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,7 +12,26 @@ public class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+    private static int testCounter = 0;
 
+    @BeforeAll
+    public static void beforeAllTests(){
+        System.out.println("The beginning of tests");
+    }
+
+    @AfterAll
+    public static void afterAllTests(){
+        System.out.println("The end of all tests");
+    }
+
+    @BeforeEach
+    public void beforeEveryTest(){
+        testCounter++;
+        System.out.println("Execute test #" + testCounter);
+    }
+
+
+    @DisplayName("Test: saveManyToMany()")
     @Test
     void testSaveManyToMany() {
         //Given

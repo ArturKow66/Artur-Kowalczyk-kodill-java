@@ -58,15 +58,15 @@ public class Employee {
         this.companies = companies;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
-    public void setFirstname(String firstname) {
+    private void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public void setLastname(String lastname) {
+    private void setLastname(String lastname) {
         this.lastname = lastname;
     }
 }

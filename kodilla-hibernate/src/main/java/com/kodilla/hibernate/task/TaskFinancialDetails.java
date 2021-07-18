@@ -28,22 +28,22 @@ public class TaskFinancialDetails {
         return id;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
     @Column(name = "PRICE")
     public BigDecimal getPrice() {
         return price;
     }
 
-    private void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
     @Column(name = "PAID")
     public boolean isPaid() {
         return paid;
+    }
+
+    private void setId(int id) {
+        this.id = id;
+    }
+
+    private void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     private void setPaid(boolean paid) {
