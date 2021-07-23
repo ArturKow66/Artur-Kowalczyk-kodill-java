@@ -1,18 +1,18 @@
 package com.kodilla.hibernate.invoice;
 
-import org.springframework.data.repository.cdi.Eager;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.*;
 
 @Entity
-@Table(name = "INVOICE")
+@Table(name = "INVOICE", indexes = {
+        @Index(name = "idx_invoice_invoice_id", columnList = "INVOIVE_ID")
+})
 public class Invoice {
 
     private int id;
     private String number;
-    private List<Item> items;
+    private List<Item> items = new ArrayList<>();
 
     public Invoice() {
     }

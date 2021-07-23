@@ -50,13 +50,17 @@ public class Item {
         return value;
     }
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn(name = "INVOIVE_ID")
     public Invoice getInvoice() {
         return invoice;
@@ -82,7 +86,7 @@ public class Item {
         this.quantity = quantity;
     }
 
-    private void setValue() {
+    public void setValue(BigDecimal value) {
         this.value = value;
     }
 }
